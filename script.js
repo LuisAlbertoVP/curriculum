@@ -112,7 +112,44 @@ function setLang(lang) {
 
 setLang('en');
 
-const observer = new IntersectionObserver((entries) => {
+const navSections = Array.from(document.querySelectorAll('section[id], footer[id]'));
+const navLinks = document.querySelectorAll('.navlinks a');
+
+function updateActiveNav() {
+  const scrollPos = window.scrollY + window.innerHeight * 0.35;
+  const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
+  let currentId = navSections.length ? navSections[0].id : null;
+
+  if (atBottom) {
+    currentId = navSections[navSections.length - 1].id;
+  } else {
+    for (const sec of navSections) {
+      if (sec.offsetTop <= scrollPos) {
+        currentId = sec.id;
+      }
+    }
+  }
+
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+  });
+}
+
+let navTicking = false;
+window.addEventListener('scroll', () => {
+  if (!navTicking) {
+    requestAnimationFrame(() => {
+      updateActiveNav();
+      navTicking = false;
+    });
+    navTicking = true;
+  }
+});
+window.addEventListener('resize', updateActiveNav);
+updateActiveNav();
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
@@ -123,18 +160,8 @@ const observer = new IntersectionObserver((entries) => {
   threshold: 0.15
 });
 
-document.querySelectorAll('.about-item').forEach(el => {
-  observer.observe(el);
-});
-
-document.querySelectorAll('.project').forEach(el => {
-  observer.observe(el);
-});
-
-document.querySelectorAll('.stack-group').forEach(el => {
-  observer.observe(el);
-});
-
-document.querySelectorAll('.contact-row').forEach(el => {
-  observer.observe(el);
+document.querySelectorAll(
+  '.about-item, .project, .stack-group, .contact-row'
+).forEach(el => {
+  revealObserver.observe(el);
 });
