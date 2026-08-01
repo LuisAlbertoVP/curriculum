@@ -127,3 +127,7 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.project').forEach(el => {
   observer.observe(el);
 });
+
+document.querySelectorAll('.stack-group').forEach(el=>{
+    observer.observe(el);
+});
