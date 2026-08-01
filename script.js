@@ -115,7 +115,18 @@ setLang('en');
 const navSections = Array.from(document.querySelectorAll('section[id], footer[id]'));
 const navLinks = document.querySelectorAll('.navlinks a');
 
+let suppressScrollUpdatesUntil = 0;
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.forEach(l => l.classList.toggle('active', l === link));
+    suppressScrollUpdatesUntil = Date.now() + 900;
+  });
+});
+
 function updateActiveNav() {
+  if (Date.now() < suppressScrollUpdatesUntil) return;
+
   const scrollPos = window.scrollY + window.innerHeight * 0.35;
   const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
 
