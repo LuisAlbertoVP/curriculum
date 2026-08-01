@@ -123,11 +123,18 @@ const observer = new IntersectionObserver((entries) => {
   threshold: 0.15
 });
 
+document.querySelectorAll('.about-item').forEach(el => {
+  observer.observe(el);
+});
 
 document.querySelectorAll('.project').forEach(el => {
   observer.observe(el);
 });
 
-document.querySelectorAll('.stack-group').forEach(el=>{
-    observer.observe(el);
+document.querySelectorAll('.stack-group').forEach(el => {
+  observer.observe(el);
+});
+
+document.querySelectorAll('.contact-row').forEach(el => {
+  observer.observe(el);
 });

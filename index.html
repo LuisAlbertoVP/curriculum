@@ -1,239 +1,254 @@
 <!DOCTYPE html>
 <html lang="en" id="html-root">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luis Velastegui — Senior Fullstack Developer</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luis Velastegui — Senior Fullstack Developer</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-<div class="grid-overlay"></div>
+  <div class="grid-overlay"></div>
 
-<nav>
-  <div class="wrap">
-    <div class="brand">Luis Velastegui</div>
-    <div class="nav-right">
-      <div class="navlinks">
-        <a href="#about" data-i18n="nav_about">Sobre mí</a>
-        <a href="#projects" data-i18n="nav_projects">Proyectos</a>
-        <a href="#stack" data-i18n="nav_stack">Stack</a>
-        <a href="#contact" data-i18n="nav_contact">Contacto</a>
-      </div>
-      <div class="lang-switch">
-        <button id="btn-es" onclick="setLang('es')">ES</button>
-        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<header class="hero wrap">
-  <div class="eyebrow" data-i18n="hero_eyebrow">Senior Fullstack Developer · .NET · Angular · Cloud & AI</div>
-  <h1>Luis Velastegui</h1>
-  <p class="tagline" data-i18n="hero_tagline">
-    <strong>Responsable técnico de 2 sistemas de facturación electrónica que operan en 6 países de Latinoamérica</strong> —
-    y en los últimos meses sumando IA generativa a ese mismo mundo empresarial.
-  </p>
-
-  <div class="cta-row">
-    <a class="btn primary" href="mailto:luisv-1@hotmail.com" data-i18n="btn_email">Escribir un correo</a>
-    <a class="btn" href="https://github.com/LuisAlbertoVP" target="_blank" rel="noopener">GitHub ↗</a>
-    <a class="btn" href="https://linkedin.com/in/luis-alberto-velastegui-pino-061579186" target="_blank" rel="noopener">LinkedIn ↗</a>
-  </div>
-
-  <div class="pipeline">
-    <div class="pipeline-label" data-i18n="pipeline_label">SFEDOC — pipeline de registro de facturas</div>
-    <svg viewBox="0 0 720 120" preserveAspectRatio="xMidYMid meet">
-      <path class="flow-line" d="M40,60 H680" />
-      <path class="flow-dash" d="M40,60 H680" />
-
-      <circle cx="40" cy="60" r="6" fill="#0E1A2B" stroke="#8CA0B8" stroke-width="2"/>
-      <text x="40" y="94" text-anchor="middle" class="node-label" data-i18n="node_client">CLIENTE</text>
-
-      <circle cx="270" cy="60" r="6" fill="#0E1A2B" stroke="#8CA0B8" stroke-width="2"/>
-      <text x="270" y="94" text-anchor="middle" class="node-label">.NET API</text>
-
-      <circle cx="460" cy="60" r="6" fill="#0E1A2B" stroke="#8CA0B8" stroke-width="2"/>
-      <text x="460" y="94" text-anchor="middle" class="node-label">SERVICE LAYER</text>
-
-      <circle cx="680" cy="60" r="7" fill="#0E1A2B" stroke="#E8A33D" stroke-width="2.5"/>
-      <text x="680" y="94" text-anchor="middle" class="node-label hi">SAP BO</text>
-    </svg>
-    <div class="pipeline-metric">
-      <div><span class="old" data-i18n="metric_old">~5 min / factura</span> → <span class="new" data-i18n="metric_new">1 clic</span></div>
-      <div class="vol" data-i18n="metric_vol">1.200–1.800 facturas / mes</div>
-    </div>
-  </div>
-</header>
-
-<section id="about">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-eyebrow" data-i18n="about_eyebrow">Sobre mí</div>
-      <h2 data-i18n="about_h2">Ownership técnico, de punta a punta</h2>
-    </div>
-    <div class="about">
-      <p data-i18n="about_p1">
-        Soy <strong>Desarrollador Fullstack Senior</strong> con más de 5 años como responsable técnico
-        de plataformas empresariales críticas en producción, coordinando directo con clientes y áreas
-        de negocio en 6 países de Latinoamérica.
-      </p>
-      <p data-i18n="about_p2">
-        Diseño arquitectura, escribo el código y sostengo el sistema en el tiempo — desde SQL Server
-        hasta despliegues en Azure — trabajando bajo <strong>Clean Architecture y CQRS</strong>, y dentro
-        de procesos formales de control de cambios (RFC) para QA/Producción.
-      </p>
-      <p data-i18n="about_p3">
-        En el último tiempo amplié ese trabajo hacia <strong>IA generativa aplicada</strong>: un chatbot
-        de soporte tributario con RAG, búsqueda semántica en Qdrant y respuestas contextualizadas vía OpenAI API.
-      </p>
-      <div class="about-chips">
-        <span class="chip" data-i18n="chip_1">6 países</span>
-        <span class="chip" data-i18n="chip_2">1.800 facturas/mes</span>
-        <span class="chip" data-i18n="chip_3">+20 agentes de soporte</span>
-        <span class="chip" data-i18n="chip_4">RFC / control de cambios</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-eyebrow" data-i18n="projects_eyebrow">Proyectos</div>
-      <h2 data-i18n="projects_h2">Lo que he construido y sostengo</h2>
-    </div>
-    <div class="projects">
-
-      <div class="project delay-1">
-        <div class="project-top">
-          <h3 data-i18n="proj1_title">SFEDOC — Facturación electrónica multi-país</h3>
-          <span class="badge" data-i18n="proj1_badge">6 países · producción</span>
+  <nav>
+    <div class="wrap">
+      <div class="brand">Luis Velastegui</div>
+      <div class="nav-right">
+        <div class="navlinks">
+          <a href="#about" data-i18n="nav_about">Sobre mí</a>
+          <a href="#projects" data-i18n="nav_projects">Proyectos</a>
+          <a href="#stack" data-i18n="nav_stack">Stack</a>
+          <a href="#contact" data-i18n="nav_contact">Contacto</a>
         </div>
-        <p data-i18n="proj1_desc">
-          Automatiza el registro de facturas en SAP Business One vía Service Layer, reduciendo el proceso
-          de ~5 minutos por factura a un clic. Diseño técnico y desarrollo end-to-end, coordinando
-          requerimientos con clientes y negocio por país.
+        <div class="lang-switch">
+          <button id="btn-es" onclick="setLang('es')">ES</button>
+          <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero wrap">
+    <div class="eyebrow" data-i18n="hero_eyebrow">Senior Fullstack Developer · .NET · Angular · Cloud & AI</div>
+    <h1>Luis Velastegui</h1>
+    <p class="tagline" data-i18n="hero_tagline">
+      <strong>Responsable técnico de 2 sistemas de facturación electrónica que operan en 6 países de
+        Latinoamérica</strong> —
+      y en los últimos meses sumando IA generativa a ese mismo mundo empresarial.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:luisv-1@hotmail.com" data-i18n="btn_email">Escribir un correo</a>
+      <a class="btn" href="https://github.com/LuisAlbertoVP" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://linkedin.com/in/luis-alberto-velastegui-pino-061579186" target="_blank"
+        rel="noopener">LinkedIn ↗</a>
+    </div>
+
+    <div class="pipeline">
+      <div class="pipeline-label" data-i18n="pipeline_label">SFEDOC — pipeline de registro de facturas</div>
+      <svg viewBox="0 0 720 120" preserveAspectRatio="xMidYMid meet">
+        <path class="flow-line" d="M40,60 H680" />
+        <path class="flow-dash" d="M40,60 H680" />
+
+        <circle cx="40" cy="60" r="6" fill="#0E1A2B" stroke="#8CA0B8" stroke-width="2" />
+        <text x="40" y="94" text-anchor="middle" class="node-label" data-i18n="node_client">CLIENTE</text>
+
+        <circle cx="270" cy="60" r="6" fill="#0E1A2B" stroke="#8CA0B8" stroke-width="2" />
+        <text x="270" y="94" text-anchor="middle" class="node-label">.NET API</text>
+
+        <circle cx="460" cy="60" r="6" fill="#0E1A2B" stroke="#8CA0B8" stroke-width="2" />
+        <text x="460" y="94" text-anchor="middle" class="node-label">SERVICE LAYER</text>
+
+        <circle cx="680" cy="60" r="7" fill="#0E1A2B" stroke="#E8A33D" stroke-width="2.5" />
+        <text x="680" y="94" text-anchor="middle" class="node-label hi">SAP BO</text>
+      </svg>
+      <div class="pipeline-metric">
+        <div><span class="old" data-i18n="metric_old">~5 min / factura</span> → <span class="new"
+            data-i18n="metric_new">1 clic</span></div>
+        <div class="vol" data-i18n="metric_vol">1.200–1.800 facturas / mes</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-eyebrow" data-i18n="about_eyebrow">Sobre mí</div>
+        <h2 data-i18n="about_h2">Ownership técnico, de punta a punta</h2>
+      </div>
+      <div class="about">
+        <p class="about-item delay-1" data-i18n="about_p1">
+          Soy <strong>Desarrollador Fullstack Senior</strong> con más de 5 años como responsable técnico
+          de plataformas empresariales críticas en producción, coordinando directo con clientes y áreas
+          de negocio en 6 países de Latinoamérica.
         </p>
-        <div class="stack-tags">
-          <span class="tag">.NET 8</span><span class="tag">Angular 21</span><span class="tag">SQL Server</span>
-          <span class="tag">Clean Architecture</span><span class="tag">CQRS</span><span class="tag">OAuth</span>
-        </div>
-      </div>
-
-      <div class="project delay-2">
-        <div class="project-top">
-          <h3 data-i18n="proj2_title">Portal de tickets regional</h3>
-          <span class="badge" data-i18n="proj2_badge">+20 agentes</span>
-        </div>
-        <p data-i18n="proj2_desc">
-          Plataforma de soporte usada por clientes externos y para tickets internos de sistemas, con SLAs
-          configurables por cliente, seguimiento de cumplimiento y métricas de desempeño por agente.
+        <p class="about-item delay-2" data-i18n="about_p2">
+          Diseño arquitectura, escribo el código y sostengo el sistema en el tiempo — desde SQL Server
+          hasta despliegues en Azure — trabajando bajo <strong>Clean Architecture y CQRS</strong>, y dentro
+          de procesos formales de control de cambios (RFC) para QA/Producción.
         </p>
-        <div class="stack-tags">
-          <span class="tag">.NET 8</span><span class="tag">Angular 21</span>
-        </div>
-      </div>
-
-      <div class="project delay-3">
-        <div class="project-top">
-          <h3 data-i18n="proj3_title">eDoc FR — Motor de formularios dinámicos</h3>
-          <span class="badge">FR · ES · EN</span>
-        </div>
-        <p data-i18n="proj3_desc">
-          Motor 100% dinámico para registro de empresas en el contexto regulatorio francés: campos,
-          validaciones y lógica de negocio configurables desde API/BD, sin cambios de código ni redeploy.
+        <p class="about-item delay-3" data-i18n="about_p3">
+          En el último tiempo amplié ese trabajo hacia <strong>IA generativa aplicada</strong>: un chatbot
+          de soporte tributario con RAG, búsqueda semántica en Qdrant y respuestas contextualizadas vía OpenAI API.
         </p>
-        <div class="stack-tags">
-          <span class="tag">Angular Reactive Forms</span><span class="tag">.NET Core Web API</span><span class="tag">ngx-translate</span>
-        </div>
-      </div>
-
-      <div class="project delay-4">
-        <div class="project-top">
-          <h3 data-i18n="proj4_title">Chatbot tributario con RAG</h3>
-          <span class="badge" data-i18n="proj4_badge">IA generativa</span>
-        </div>
-        <p data-i18n="proj4_desc">
-          Pipeline completo de Retrieval-Augmented Generation: chunking de documentos, embeddings,
-          búsqueda semántica en Qdrant y generación de respuestas contextualizadas con OpenAI API,
-          desplegado en Azure.
-        </p>
-        <div class="stack-tags">
-          <span class="tag">C# / .NET 8</span><span class="tag">Qdrant</span><span class="tag">OpenAI API</span><span class="tag">Azure</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="stack">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-eyebrow" data-i18n="stack_eyebrow">Stack técnico</div>
-      <h2 data-i18n="stack_h2">Herramientas que uso a diario</h2>
-    </div>
-    <div class="stack-groups">
-      <div class="stack-group delay-1">
-        <h4 data-i18n="stack_backend">Backend</h4>
-        <div class="tags">
-          <span class="tag">.NET 8</span><span class="tag">C#</span><span class="tag">.NET Framework</span><span class="tag">ASP.NET Web API</span>
-        </div>
-      </div>
-      <div class="stack-group delay-2">
-        <h4 data-i18n="stack_frontend">Frontend</h4>
-        <div class="tags">
-          <span class="tag">Angular 21</span><span class="tag">TypeScript</span><span class="tag">Reactive Forms</span><span class="tag">ngx-translate</span>
-        </div>
-      </div>
-      <div class="stack-group delay-3">
-        <h4 data-i18n="stack_data">Datos</h4>
-        <div class="tags">
-          <span class="tag">SQL Server</span><span class="tag">MySQL</span>
-        </div>
-      </div>
-      <div class="stack-group delay-4">
-        <h4 data-i18n="stack_cloud">Cloud & DevOps</h4>
-        <div class="tags">
-          <span class="tag">Azure App Service</span><span class="tag">AWS S3</span><span class="tag">Docker</span><span class="tag">Git</span>
-        </div>
-      </div>
-      <div class="stack-group delay-5">
-        <h4 data-i18n="stack_ai">IA / RAG</h4>
-        <div class="tags">
-          <span class="tag">RAG</span><span class="tag">Embeddings</span><span class="tag">Qdrant</span><span class="tag">OpenAI API</span>
-        </div>
-      </div>
-      <div class="stack-group delay-6">
-        <h4 data-i18n="stack_arch">Arquitectura</h4>
-        <div class="tags">
-          <span class="tag">Clean Architecture</span><span class="tag">CQRS</span><span class="tag">OWASP</span><span class="tag">SonarQube</span>
+        <div class="about-item about-chips delay-4">
+          <span class="chip" data-i18n="chip_1">6 países</span>
+          <span class="chip" data-i18n="chip_2">1.800 facturas/mes</span>
+          <span class="chip" data-i18n="chip_3">+20 agentes de soporte</span>
+          <span class="chip" data-i18n="chip_4">RFC / control de cambios</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer id="contact">
-  <div class="wrap">
-    <div class="contact-row">
-      <div>
-        <h2 data-i18n="footer_h2">Hablemos</h2>
-        <p data-i18n="footer_p">Abierto a conversar sobre roles de Senior Fullstack Developer, arquitectura de sistemas y proyectos con IA aplicada.</p>
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-eyebrow" data-i18n="projects_eyebrow">Proyectos</div>
+        <h2 data-i18n="projects_h2">Lo que he construido y sostengo</h2>
       </div>
-      <div class="foot-links">
-        <a href="mailto:luisv-1@hotmail.com">luisv-1@hotmail.com</a>
-        <a href="https://github.com/LuisAlbertoVP" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/luis-alberto-velastegui-pino-061579186" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="projects">
+
+        <div class="project delay-1">
+          <div class="project-top">
+            <h3 data-i18n="proj1_title">SFEDOC — Facturación electrónica multi-país</h3>
+            <span class="badge" data-i18n="proj1_badge">6 países · producción</span>
+          </div>
+          <p data-i18n="proj1_desc">
+            Automatiza el registro de facturas en SAP Business One vía Service Layer, reduciendo el proceso
+            de ~5 minutos por factura a un clic. Diseño técnico y desarrollo end-to-end, coordinando
+            requerimientos con clientes y negocio por país.
+          </p>
+          <div class="stack-tags">
+            <span class="tag">.NET 8</span><span class="tag">Angular 21</span><span class="tag">SQL Server</span>
+            <span class="tag">Clean Architecture</span><span class="tag">CQRS</span><span class="tag">OAuth</span>
+          </div>
+        </div>
+
+        <div class="project delay-2">
+          <div class="project-top">
+            <h3 data-i18n="proj2_title">Portal de tickets regional</h3>
+            <span class="badge" data-i18n="proj2_badge">+20 agentes</span>
+          </div>
+          <p data-i18n="proj2_desc">
+            Plataforma de soporte usada por clientes externos y para tickets internos de sistemas, con SLAs
+            configurables por cliente, seguimiento de cumplimiento y métricas de desempeño por agente.
+          </p>
+          <div class="stack-tags">
+            <span class="tag">.NET 8</span><span class="tag">Angular 21</span>
+          </div>
+        </div>
+
+        <div class="project delay-3">
+          <div class="project-top">
+            <h3 data-i18n="proj3_title">eDoc FR — Motor de formularios dinámicos</h3>
+            <span class="badge">FR · ES · EN</span>
+          </div>
+          <p data-i18n="proj3_desc">
+            Motor 100% dinámico para registro de empresas en el contexto regulatorio francés: campos,
+            validaciones y lógica de negocio configurables desde API/BD, sin cambios de código ni redeploy.
+          </p>
+          <div class="stack-tags">
+            <span class="tag">Angular Reactive Forms</span><span class="tag">.NET Core Web API</span><span
+              class="tag">ngx-translate</span>
+          </div>
+        </div>
+
+        <div class="project delay-4">
+          <div class="project-top">
+            <h3 data-i18n="proj4_title">Chatbot tributario con RAG</h3>
+            <span class="badge" data-i18n="proj4_badge">IA generativa</span>
+          </div>
+          <p data-i18n="proj4_desc">
+            Pipeline completo de Retrieval-Augmented Generation: chunking de documentos, embeddings,
+            búsqueda semántica en Qdrant y generación de respuestas contextualizadas con OpenAI API,
+            desplegado en Azure.
+          </p>
+          <div class="stack-tags">
+            <span class="tag">C# / .NET 8</span><span class="tag">Qdrant</span><span class="tag">OpenAI API</span><span
+              class="tag">Azure</span>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="copyright" data-i18n="footer_copy">Guayaquil, Ecuador — construido con HTML, CSS y ganas de que esto se vea distinto.</div>
-  </div>
-</footer>
-<script src="script.js" type="text/javascript"></script>
+  </section>
+
+  <section id="stack">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-eyebrow" data-i18n="stack_eyebrow">Stack técnico</div>
+        <h2 data-i18n="stack_h2">Herramientas que uso a diario</h2>
+      </div>
+      <div class="stack-groups">
+        <div class="stack-group delay-1">
+          <h4 data-i18n="stack_backend">Backend</h4>
+          <div class="tags">
+            <span class="tag">.NET 8</span><span class="tag">C#</span><span class="tag">.NET Framework</span><span
+              class="tag">ASP.NET Web API</span>
+          </div>
+        </div>
+        <div class="stack-group delay-2">
+          <h4 data-i18n="stack_frontend">Frontend</h4>
+          <div class="tags">
+            <span class="tag">Angular 21</span><span class="tag">TypeScript</span><span class="tag">Reactive
+              Forms</span><span class="tag">ngx-translate</span>
+          </div>
+        </div>
+        <div class="stack-group delay-3">
+          <h4 data-i18n="stack_data">Datos</h4>
+          <div class="tags">
+            <span class="tag">SQL Server</span><span class="tag">MySQL</span>
+          </div>
+        </div>
+        <div class="stack-group delay-4">
+          <h4 data-i18n="stack_cloud">Cloud & DevOps</h4>
+          <div class="tags">
+            <span class="tag">Azure App Service</span><span class="tag">AWS S3</span><span
+              class="tag">Docker</span><span class="tag">Git</span>
+          </div>
+        </div>
+        <div class="stack-group delay-5">
+          <h4 data-i18n="stack_ai">IA / RAG</h4>
+          <div class="tags">
+            <span class="tag">RAG</span><span class="tag">Embeddings</span><span class="tag">Qdrant</span><span
+              class="tag">OpenAI API</span>
+          </div>
+        </div>
+        <div class="stack-group delay-6">
+          <h4 data-i18n="stack_arch">Arquitectura</h4>
+          <div class="tags">
+            <span class="tag">Clean Architecture</span><span class="tag">CQRS</span><span class="tag">OWASP</span><span
+              class="tag">SonarQube</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="contact-row">
+        <div>
+          <h2 data-i18n="footer_h2">Hablemos</h2>
+          <p data-i18n="footer_p">Abierto a conversar sobre roles de Senior Fullstack Developer, arquitectura de
+            sistemas y proyectos con IA aplicada.</p>
+        </div>
+        <div class="foot-links">
+          <a href="mailto:luisv-1@hotmail.com">luisv-1@hotmail.com</a>
+          <a href="https://github.com/LuisAlbertoVP" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com/in/luis-alberto-velastegui-pino-061579186" target="_blank"
+            rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="copyright" data-i18n="footer_copy">Guayaquil, Ecuador — construido con HTML, CSS y ganas de que esto
+        se vea distinto.</div>
+    </div>
+  </footer>
+  <script src="script.js" type="text/javascript"></script>
 </body>
 </html>
