@@ -4,259 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luis Velastegui — Senior Fullstack Developer</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #0E1A2B;
-    --bg-alt: #122238;
-    --surface: #16283F;
-    --line: #24405C;
-    --text: #E7EDF5;
-    --text-dim: #8CA0B8;
-    --accent: #E8A33D;
-    --accent-dim: #a97c3d;
-    --teal: #4FD1C5;
-    --radius: 4px;
-  }
-  *{ box-sizing:border-box; margin:0; padding:0; }
-  html{ scroll-behavior:smooth; }
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.6;
-    overflow-x:hidden;
-  }
-  ::selection{ background:var(--accent); color:#0E1A2B; }
-
-  .grid-overlay{
-    position:fixed; inset:0;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 64px 64px;
-    opacity:0.08;
-    pointer-events:none;
-    z-index:0;
-  }
-
-  .wrap{ max-width:1040px; margin:0 auto; padding:0 28px; position:relative; z-index:1; }
-  @media (max-width:640px){
-    .wrap{ padding:0 20px; }
-  }
-  @media (max-width:400px){
-    .wrap{ padding:0 18px; }
-  }
-
-  h1,h2,h3{ font-family:'Space Grotesk', sans-serif; font-weight:600; letter-spacing:-0.01em; }
-  .mono{ font-family:'IBM Plex Mono', monospace; }
-  a{ color:inherit; }
-
-  /* NAV */
-  nav{
-    position:sticky; top:0; z-index:10;
-    background:rgba(14,26,43,0.85);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{ display:flex; justify-content:space-between; align-items:center; height:64px; }
-  .brand{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.05rem; }
-  .nav-right{ display:flex; align-items:center; gap:28px; }
-  .navlinks{ display:flex; gap:28px; font-size:0.85rem; }
-  .navlinks a{ text-decoration:none; color:var(--text-dim); transition:color .2s; }
-  .navlinks a:hover{ color:var(--accent); }
-  @media (max-width:640px){ .navlinks{ display:none; } }
-
-  /* LANG SWITCH */
-  .lang-switch{
-    display:flex;
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:3px;
-    gap:2px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem;
-  }
-  .lang-switch button{
-    background:transparent;
-    border:none;
-    color:var(--text-dim);
-    padding:5px 12px;
-    border-radius:16px;
-    cursor:pointer;
-    font-family:inherit;
-    font-size:inherit;
-    letter-spacing:0.04em;
-    transition:all .2s;
-  }
-  .lang-switch button.active{
-    background:var(--accent);
-    color:#0E1A2B;
-    font-weight:600;
-  }
-  .lang-switch button:not(.active):hover{ color:var(--text); }
-
-  /* HERO */
-  .hero{ padding-top:96px; padding-bottom:64px; position:relative; }
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.75rem;
-    letter-spacing:0.12em;
-    color:var(--accent);
-    text-transform:uppercase;
-    margin-bottom:18px;
-    display:flex; align-items:center; gap:10px;
-  }
-  .eyebrow::before{
-    content:''; width:24px; height:1px; background:var(--accent);
-  }
-  .hero h1{
-    font-size:clamp(2.4rem, 6vw, 4rem);
-    line-height:1.02;
-    margin-bottom:20px;
-  }
-  .hero .tagline{
-    font-size:1.15rem;
-    color:var(--text-dim);
-    max-width:560px;
-    margin-bottom:40px;
-  }
-  .hero .tagline strong{ color:var(--text); font-weight:500; }
-  @media (max-width:640px){
-    .hero{ padding-top:72px; padding-bottom:48px; }
-    .hero h1{ font-size:2.6rem; }
-    .hero .tagline{ font-size:1.02rem; }
-  }
-
-  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:72px; }
-  .btn{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.82rem;
-    padding:11px 20px;
-    border-radius:var(--radius);
-    text-decoration:none;
-    border:1px solid var(--line);
-    color:var(--text);
-    transition:all .2s;
-    display:inline-flex; align-items:center; gap:8px;
-  }
-  .btn:hover{ border-color:var(--accent); color:var(--accent); }
-  .btn.primary{ background:var(--accent); color:#0E1A2B; border-color:var(--accent); font-weight:500; }
-  .btn.primary:hover{ background:transparent; color:var(--accent); }
-
-  /* PIPELINE DIAGRAM - signature element */
-  .pipeline{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:6px;
-    padding:32px 28px 28px;
-    position:relative;
-    overflow:hidden;
-  }
-  .pipeline-label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem;
-    color:var(--text-dim);
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    margin-bottom:22px;
-  }
-  .pipeline svg{ width:100%; height:auto; display:block; }
-  .node-label{ font-family:'IBM Plex Mono', monospace; font-size:11px; fill:var(--text-dim); }
-  .node-label.hi{ fill:var(--accent); }
-  .flow-line{
-    fill:none; stroke:var(--line); stroke-width:2;
-  }
-  .flow-dash{
-    fill:none; stroke:var(--accent); stroke-width:2;
-    stroke-dasharray:6 10;
-    animation:dash 1.8s linear infinite;
-  }
-  @keyframes dash{ to{ stroke-dashoffset:-32; } }
-  .pipeline-metric{
-    display:flex; justify-content:space-between; align-items:baseline;
-    margin-top:22px; padding-top:18px; border-top:1px solid var(--line);
-    flex-wrap:wrap; gap:10px;
-  }
-  .pipeline-metric .old{ color:var(--text-dim); text-decoration:line-through; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; }
-  .pipeline-metric .new{ color:var(--accent); font-family:'IBM Plex Mono',monospace; font-size:0.95rem; font-weight:500; }
-  .pipeline-metric .vol{ font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--text-dim); }
-
-  /* SECTIONS */
-  section{ padding:64px 0; border-top:1px solid var(--line); }
-  .sec-head{ margin-bottom:36px; }
-  .sec-eyebrow{
-    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
-    color:var(--text-dim); text-transform:uppercase; letter-spacing:0.1em;
-    margin-bottom:10px;
-  }
-  .sec-head h2{ font-size:1.7rem; }
-
-  .about p{ color:var(--text-dim); max-width:640px; font-size:1.02rem; margin-bottom:14px; }
-  .about strong{ color:var(--text); font-weight:500; }
-  .about-chips{ display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
-  .chip{
-    font-family:'IBM Plex Mono', monospace; font-size:0.75rem;
-    padding:6px 12px; border:1px solid var(--line); border-radius:20px;
-    color:var(--text-dim);
-  }
-
-  /* PROJECTS */
-  .projects{ display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; }
-  .project{
-    background:var(--bg-alt);
-    padding:28px 26px;
-    display:grid;
-    grid-template-columns:1fr;
-    gap:14px;
-    transition:background .2s;
-  }
-  .project:hover{ background:var(--surface); }
-  .project-top{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
-  .project h3{ font-size:1.15rem; }
-  .project .badge{
-    font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
-    color:var(--teal); border:1px solid rgba(79,209,197,0.35);
-    padding:3px 9px; border-radius:12px; white-space:nowrap;
-  }
-  .project p{ color:var(--text-dim); font-size:0.95rem; max-width:620px; }
-  .stack-tags{ display:flex; gap:8px; flex-wrap:wrap; }
-  .tag{
-    font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
-    color:var(--text-dim); border:1px solid var(--line);
-    padding:3px 9px; border-radius:3px;
-  }
-
-  /* STACK */
-  .stack-groups{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; }
-  .stack-group h4{
-    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
-    color:var(--accent); text-transform:uppercase; letter-spacing:0.06em;
-    margin-bottom:12px;
-  }
-  .stack-group .tags{ display:flex; flex-wrap:wrap; gap:8px; }
-
-  /* CONTACT / FOOTER */
-  footer{ padding:56px 0 48px; border-top:1px solid var(--line); }
-  .contact-row{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; }
-  footer h2{ font-size:1.6rem; margin-bottom:10px; }
-  footer p{ color:var(--text-dim); max-width:420px; }
-  .foot-links{ display:flex; gap:18px; flex-wrap:wrap; }
-  .foot-links a{
-    font-family:'IBM Plex Mono', monospace; font-size:0.85rem;
-    text-decoration:none; color:var(--text-dim);
-    border-bottom:1px solid transparent; padding-bottom:2px;
-    transition:color .2s, border-color .2s;
-  }
-  .foot-links a:hover{ color:var(--accent); border-color:var(--accent); }
-  .copyright{ margin-top:40px; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--text-dim); opacity:0.6; }
-
-  @media (prefers-reduced-motion: reduce){
-    .flow-dash{ animation:none; }
-  }
-</style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <div class="grid-overlay"></div>
@@ -357,7 +108,7 @@
     </div>
     <div class="projects">
 
-      <div class="project">
+      <div class="project delay-1">
         <div class="project-top">
           <h3 data-i18n="proj1_title">SFEDOC — Facturación electrónica multi-país</h3>
           <span class="badge" data-i18n="proj1_badge">6 países · producción</span>
@@ -373,7 +124,7 @@
         </div>
       </div>
 
-      <div class="project">
+      <div class="project delay-2">
         <div class="project-top">
           <h3 data-i18n="proj2_title">Portal de tickets regional</h3>
           <span class="badge" data-i18n="proj2_badge">+20 agentes</span>
@@ -387,7 +138,7 @@
         </div>
       </div>
 
-      <div class="project">
+      <div class="project delay-3">
         <div class="project-top">
           <h3 data-i18n="proj3_title">eDoc FR — Motor de formularios dinámicos</h3>
           <span class="badge">FR · ES · EN</span>
@@ -401,7 +152,7 @@
         </div>
       </div>
 
-      <div class="project">
+      <div class="project delay-4">
         <div class="project-top">
           <h3 data-i18n="proj4_title">Chatbot tributario con RAG</h3>
           <span class="badge" data-i18n="proj4_badge">IA generativa</span>
@@ -483,123 +234,6 @@
     <div class="copyright" data-i18n="footer_copy">Guayaquil, Ecuador — construido con HTML, CSS y ganas de que esto se vea distinto.</div>
   </div>
 </footer>
-
-<script>
-const translations = {
-  es: {
-    nav_about: "Sobre mí",
-    nav_projects: "Proyectos",
-    nav_stack: "Stack",
-    nav_contact: "Contacto",
-    hero_eyebrow: "Senior Fullstack Developer · .NET · Angular · Cloud & AI",
-    hero_tagline: '<strong>Responsable técnico de 2 sistemas de facturación electrónica que operan en 6 países de Latinoamérica</strong> — y en los últimos meses sumando IA generativa a ese mismo mundo empresarial.',
-    btn_email: "Escribir un correo",
-    pipeline_label: "SFEDOC — pipeline de registro de facturas",
-    node_client: "CLIENTE",
-    metric_old: "~5 min / factura",
-    metric_new: "1 clic",
-    metric_vol: "1.200–1.800 facturas / mes",
-    about_eyebrow: "Sobre mí",
-    about_h2: "Ownership técnico, de punta a punta",
-    about_p1: 'Soy <strong>Desarrollador Fullstack Senior en GuruSoft</strong> desde junio de 2021, con más de 5 años como responsable técnico de plataformas empresariales críticas en producción, coordinando directo con clientes y áreas de negocio en 6 países de Latinoamérica.',
-    about_p2: 'Diseño arquitectura, escribo el código y sostengo el sistema en el tiempo — desde SQL Server hasta despliegues en Azure — trabajando bajo <strong>Clean Architecture y CQRS</strong>, y dentro de procesos formales de control de cambios (RFC) para QA/Producción.',
-    about_p3: 'En el último tiempo amplié ese trabajo hacia <strong>IA generativa aplicada</strong>: un chatbot de soporte tributario con RAG, búsqueda semántica en Qdrant y respuestas contextualizadas vía OpenAI API.',
-    chip_1: "6 países",
-    chip_2: "1.800 facturas/mes",
-    chip_3: "+20 agentes de soporte",
-    chip_4: "RFC / control de cambios",
-    projects_eyebrow: "Proyectos",
-    projects_h2: "Lo que he construido y sostengo",
-    proj1_title: "SFEDOC — Facturación electrónica multi-país",
-    proj1_badge: "6 países · producción",
-    proj1_desc: "Automatiza el registro de facturas en SAP Business One vía Service Layer, reduciendo el proceso de ~5 minutos por factura a un clic. Diseño técnico y desarrollo end-to-end, coordinando requerimientos con clientes y negocio por país.",
-    proj2_title: "Portal de tickets regional",
-    proj2_badge: "+20 agentes",
-    proj2_desc: "Plataforma de soporte usada por clientes externos y para tickets internos de sistemas, con SLAs configurables por cliente, seguimiento de cumplimiento y métricas de desempeño por agente.",
-    proj3_title: "eDoc FR — Motor de formularios dinámicos",
-    proj3_desc: "Motor 100% dinámico para registro de empresas en el contexto regulatorio francés: campos, validaciones y lógica de negocio configurables desde API/BD, sin cambios de código ni redeploy.",
-    proj4_title: "Chatbot tributario con RAG",
-    proj4_badge: "IA generativa",
-    proj4_desc: "Pipeline completo de Retrieval-Augmented Generation: chunking de documentos, embeddings, búsqueda semántica en Qdrant y generación de respuestas contextualizadas con OpenAI API, desplegado en Azure.",
-    stack_eyebrow: "Stack técnico",
-    stack_h2: "Herramientas que uso a diario",
-    stack_backend: "Backend",
-    stack_frontend: "Frontend",
-    stack_data: "Datos",
-    stack_cloud: "Cloud & DevOps",
-    stack_ai: "IA / RAG",
-    stack_arch: "Arquitectura",
-    footer_h2: "Hablemos",
-    footer_p: "Abierto a conversar sobre roles de Senior Fullstack Developer, arquitectura de sistemas y proyectos con IA aplicada.",
-    footer_copy: "Guayaquil, Ecuador — construido con HTML, CSS y ganas de que esto se vea distinto."
-  },
-  en: {
-    nav_about: "About",
-    nav_projects: "Projects",
-    nav_stack: "Stack",
-    nav_contact: "Contact",
-    hero_eyebrow: "Senior Fullstack Developer · .NET · Angular · Cloud & AI",
-    hero_tagline: '<strong>Technical owner of 2 e-invoicing systems running in 6 Latin American countries</strong> — and over the past few months, bringing generative AI into that same enterprise world.',
-    btn_email: "Send an email",
-    pipeline_label: "SFEDOC — invoice registration pipeline",
-    node_client: "CLIENT",
-    metric_old: "~5 min / invoice",
-    metric_new: "1 click",
-    metric_vol: "1,200–1,800 invoices / month",
-    about_eyebrow: "About",
-    about_h2: "End-to-end technical ownership",
-    about_p1: "I'm a <strong>Senior Fullstack Developer at GuruSoft</strong> since June 2021, with 5+ years as the technical owner of mission-critical enterprise platforms in production, coordinating directly with clients and business teams across 6 Latin American countries.",
-    about_p2: 'I design the architecture, write the code, and keep the system running over time — from SQL Server to Azure deployments — working under <strong>Clean Architecture and CQRS</strong>, and within a formal change-control process (RFC) for QA/Production deployments.',
-    about_p3: "More recently I extended that work into <strong>applied generative AI</strong>: a tax support chatbot built with RAG, semantic search in Qdrant, and contextualized answers via the OpenAI API.",
-    chip_1: "6 countries",
-    chip_2: "1,800 invoices/month",
-    chip_3: "20+ support agents",
-    chip_4: "RFC / change control",
-    projects_eyebrow: "Projects",
-    projects_h2: "What I've built and maintain",
-    proj1_title: "SFEDOC — Multi-country e-invoicing",
-    proj1_badge: "6 countries · production",
-    proj1_desc: "Automates invoice registration in SAP Business One via Service Layer, cutting the per-invoice process from ~5 minutes to a single click. End-to-end technical design and development, coordinating requirements with clients and business teams per country.",
-    proj2_title: "Regional support ticketing portal",
-    proj2_badge: "20+ agents",
-    proj2_desc: "Support platform used by external clients and for internal systems tickets, with configurable per-client SLAs, compliance tracking, and per-agent performance metrics.",
-    proj3_title: "eDoc FR — Dynamic form engine",
-    proj3_desc: "100% dynamic engine for company registration under French regulatory requirements: fields, validations, and business logic configurable from the API/DB, with no code changes or redeploy.",
-    proj4_title: "Tax support chatbot (RAG)",
-    proj4_badge: "Generative AI",
-    proj4_desc: "Full Retrieval-Augmented Generation pipeline: document chunking, embeddings, semantic search in Qdrant, and contextualized response generation with the OpenAI API, deployed on Azure.",
-    stack_eyebrow: "Tech stack",
-    stack_h2: "Tools I use every day",
-    stack_backend: "Backend",
-    stack_frontend: "Frontend",
-    stack_data: "Data",
-    stack_cloud: "Cloud & DevOps",
-    stack_ai: "AI / RAG",
-    stack_arch: "Architecture",
-    footer_h2: "Let's talk",
-    footer_p: "Open to conversations about Senior Fullstack Developer roles, systems architecture, and applied AI projects.",
-    footer_copy: "Guayaquil, Ecuador — built with HTML, CSS, and a desire for this to look different."
-  }
-};
-
-function setLang(lang){
-  document.getElementById('html-root').setAttribute('lang', lang);
-  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    const value = translations[lang][key];
-    if(value !== undefined){
-      el.innerHTML = value;
-    }
-  });
-
-}
-
-// Init: default to English
-setLang('en');
-</script>
-
+<script src="script.js" type="text/javascript"></script>
 </body>
 </html>
